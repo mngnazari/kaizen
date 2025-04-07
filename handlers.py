@@ -10,10 +10,10 @@ async def archive_month_handler(update, context):
 async def archive_all_handler(update, context):
     await update.message.reply_text("📂 نمایش کل آرشیو...")
 
-async def back_to_main_handler(update, context):
+async def back_to_main_handler(update, context, size=3):
     from menu_manager import handle_menu  # lazy import برای جلوگیری از حلقه
     context.user_data['current_menu'] = 'main'
-    await handle_menu(update, context)
+    await handle_menu(update, context,size=3)
 
 async def archive_handler(update, context, size=3):
     from menu_manager import handle_menu

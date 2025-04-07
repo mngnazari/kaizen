@@ -9,7 +9,7 @@ TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data['current_menu'] = 'main'
-    await handle_menu(update, context, "start",1)
+    await handle_menu(update, context, "start", size=3)
 
 def main():
     app = Application.builder().token(TOKEN).build()
