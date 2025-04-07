@@ -1,25 +1,24 @@
-from handlers import (
-    dummy_handler,
-    back_to_main_handler,
-    archive_week_handler,
-    archive_month_handler,
-    archive_all_handler,
-    archive_handler
-)
+## menus.py
+from handlers import customer, admin, common
 
 menus = {
-    "main": {  # اینو می‌ذاریم به عنوان منوی مشتری
-        "📁 آرشیو": archive_handler,
-        "⏳ در حال انجام": dummy_handler,
-        "💰 کیف پول": dummy_handler,
-        "🆘 پشتیبانی": dummy_handler,
-        "📜 قوانین": dummy_handler,
-        "🧾 فاکتور": dummy_handler,
+    "main_customer": {
+        "🗂 آرشیو": customer.archive_handler,
+        "🔄 در حال انجام": customer.in_progress_handler,
+        "💳 کیف پول": customer.wallet_handler,
+        "📞 پشتیبانی": customer.support_handler,
+        "📜 قوانین": customer.rules_handler,
+        "🧾 فاکتور": customer.invoice_handler,
     },
-    "archive": {
-        "📅 هفته اخیر": archive_week_handler,
-        "🗓 ماه اخیر": archive_month_handler,
-        "📂 کل": archive_all_handler,
-        "⬅️ بازگشت": back_to_main_handler
+    "archive_menu": {
+        "📅 هفته اخیر": customer.recent_week_handler,
+        "📆 ماه اخیر": customer.recent_month_handler,
+        "📁 کل": customer.all_archive_handler,
+        "🔙 بازگشت": common.back_to_main_handler,
+    },
+    "main_admin": {
+        "👥 مشتریان": admin.customer_list_handler,
+        "🎁 تخفیف مناسبتی": admin.discount_handler,
+        "🔙 بازگشت": common.back_to_main_handler,
     }
-}
+} 

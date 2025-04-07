@@ -1,21 +1,20 @@
+from telegram.ext import Application, CommandHandler, MessageHandler, filters
+from menu_manager import handle_menu
+from handlers.start import start_handler  # ← هندلر جدید و استاندارد start
+
 import os
 from dotenv import load_dotenv
-from telegram import Update, ReplyKeyboardMarkup
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
-from menu_manager import handle_menu
 
 load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("BOT_TOKEN")  # یا مستقیم توکن بذار
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.user_data['current_menu'] = 'main'
-    await handle_menu(update, context, "start", size=3)
+app = Application.builder().token(TOKEN).build()
 
-def main():
-    app = Application.builder().token(TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_menu))
-    app.run_polling()
+# ⬅️ اول CommandHandlerها (مثل /start) باید بیان
+app.add_handler(CommandHandler("start", start_handler))
 
-if __name__ == "__main__":
-    main()
+# ⬅️ بعدش MessageHandler عمومی
+app.add_handler(MessageHandler(filters.TEXT, handle_menu))
+
+print("🤖 Bot is running...")
+app.run_polling()

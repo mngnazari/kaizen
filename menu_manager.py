@@ -1,20 +1,18 @@
-from telegram import ReplyKeyboardMarkup
+from telegram import Update
+from telegram.ext import ContextTypes
 from menus import menus
-from handlers import dummy_handler
-from itertools import zip_longest
 
-def chunk_buttons(buttons, size=3):
-    return [list(filter(None, group)) for group in zip_longest(*[iter(buttons)]*size)]
 
-async def handle_menu(update, context, from_where="msg", size=3):
-    text = update.message.text if from_where == "msg" else "start"
-    current_menu = context.user_data.get("current_menu", "main")
+async def handle_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, from_where="msg"):
+    text = update.message.text  # فقط پیام متنی واقعی، نه else 'start'
+
+    # اگر متن واردشده توی منو نیست، بی‌خیال شو یا یه پیام بده
+    current_menu = context.user_data.get("current_menu", "main_customer")
     menu = menus.get(current_menu, {})
 
     handler = menu.get(text)
+
     if handler:
         await handler(update, context)
     else:
-        #keyboard = ReplyKeyboardMarkup([list(menu.keys())], resize_keyboard=True)
-        keyboard = ReplyKeyboardMarkup(chunk_buttons(list(menu.keys()), size=size), resize_keyboard=True)
-        await update.message.reply_text("لطفاً یکی از گزینه‌ها را انتخاب کنید:", reply_markup=keyboard)
+        await update.message.reply_text("❗ گزینه نامعتبر است یا هنوز پیاده‌سازی نشده.")
