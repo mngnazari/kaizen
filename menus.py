@@ -3,12 +3,13 @@ from handlers import (
     back_to_main_handler,
     archive_week_handler,
     archive_month_handler,
-    archive_all_handler
+    archive_all_handler,
+    archive_handler
 )
 
 menus = {
     "main": {  # اینو می‌ذاریم به عنوان منوی مشتری
-        "📁 آرشیو": dummy_handler,
+        "📁 آرشیو": archive_handler,
         "⏳ در حال انجام": dummy_handler,
         "💰 کیف پول": dummy_handler,
         "🆘 پشتیبانی": dummy_handler,
