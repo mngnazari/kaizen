@@ -1,14 +1,25 @@
-from handlers import dummy_handler, settings_handler, back_to_main_handler
+from handlers import (
+    dummy_handler,
+    back_to_main_handler,
+    archive_week_handler,
+    archive_month_handler,
+    archive_all_handler,
+    archive_handler
+)
 
 menus = {
-    "main": {
-        "🧪 تست": dummy_handler,
-        "⚙️ تنظیمات": settings_handler,
-        "📊 درباره ما": dummy_handler
+    "main": {  # اینو می‌ذاریم به عنوان منوی مشتری
+        "📁 آرشیو": archive_handler,
+        "⏳ در حال انجام": dummy_handler,
+        "💰 کیف پول": dummy_handler,
+        "🆘 پشتیبانی": dummy_handler,
+        "📜 قوانین": dummy_handler,
+        "🧾 فاکتور": dummy_handler,
     },
-    "settings": {
-        "🖼 تغییر پروفایل": dummy_handler,
-        "🔕 قطع اعلان": dummy_handler,
+    "archive": {
+        "📅 هفته اخیر": archive_week_handler,
+        "🗓 ماه اخیر": archive_month_handler,
+        "📂 کل": archive_all_handler,
         "⬅️ بازگشت": back_to_main_handler
     }
 }
