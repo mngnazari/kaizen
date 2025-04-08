@@ -1,15 +1,22 @@
 from telegram import Update
 from telegram.ext import ContextTypes
-from menus import menus
+from menus import menu_map
 
 
 async def handle_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, from_where="msg"):
-    text = update.message.text  # فقط پیام متنی واقعی، نه else 'start'
+    # گرفتن متن انتخاب‌شده توسط کاربر (چه از دکمه ثابت، چه پیام)
+    text = update.message.text if from_where == "msg" else update.callback_query.data
 
-    # اگر متن واردشده توی منو نیست، بی‌خیال شو یا یه پیام بده
+    # گرفتن منوی فعلی از user_data
     current_menu = context.user_data.get("current_menu", "main_customer")
-    menu = menus.get(current_menu, {})
+    menu = menu_map.get(current_menu, {})
 
+    # 📥 لاگ‌های دیباگ برای بررسی
+    print("📥 متن دریافتی:", text)
+    print("📂 current_menu:", current_menu)
+    print("🗂 کلیدهای منو:", list(menu.keys()))
+
+    # اجرای تابع مرتبط با دکمه
     handler = menu.get(text)
 
     if handler:
