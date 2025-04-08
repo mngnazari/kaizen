@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="منوها با زیر منو و تعیین تعداد هر سطر و درستی پیدمان دکمه ها در بازگشت ها">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/dispatcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/menus.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
