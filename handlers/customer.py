@@ -1,6 +1,8 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 from handlers.common import build_keyboard
+from handlers.inline.keyboards import build_inline_keyboard
+
 
 async def archive_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data["current_menu"] = "archive_menu"
@@ -30,3 +32,9 @@ async def recent_month_handler(update: Update, context: ContextTypes.DEFAULT_TYP
 
 async def all_archive_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("📁 کل سفارشات ثبت‌شده")
+
+async def test_inline_menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "🔘 تست منوی شیشه‌ای:",
+        reply_markup=build_inline_keyboard("file_menu", "TEST001")
+    )

@@ -9,6 +9,8 @@ menus = {
         "📞 پشتیبانی": customer.support_handler,
         "📜 قوانین": customer.rules_handler,
         "🧾 فاکتور": customer.invoice_handler,
+        "🧪 تست دکمه شیشه‌ای": customer.test_inline_menu_handler
+
     },
     "archive_menu": {
         "📅 هفته اخیر": customer.recent_week_handler,
