@@ -9,3 +9,9 @@ menus = {
         "🔙 برگشت": "back_to:file_menu"
     }
 }
+
+menu_layouts = {
+    "file_menu": 1,
+    "confirm_menu": 1,
+    "test_menu": 3
+}

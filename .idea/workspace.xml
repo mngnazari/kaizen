@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="منوها با زیر منو و تعیین تعداد هر سطر و درستی پیدمان دکمه ها در بازگشت ها">
-      <change afterPath="$PROJECT_DIR$/handlers/inline/actions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/inline/dispatcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/dispatcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/menus.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +84,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (kaizen22)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -110,11 +107,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (kaizen22)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -199,6 +196,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kaizen$handlers.coverage" NAME="handlers Coverage Results" MODIFIED="1744031571987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/kaizen$main.coverage" NAME="main Coverage Results" MODIFIED="1744031447210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kaizen$main.coverage" NAME="main Coverage Results" MODIFIED="1744115321973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

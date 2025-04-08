@@ -1,7 +1,7 @@
 from telegram.ext import Application, CommandHandler, MessageHandler, filters,CallbackQueryHandler
 from menu_manager import handle_menu
 from handlers.start import start_handler  # ← هندلر جدید و استاندارد start
-from handlers.inline.dispatcher import handle_callback_query
+from handlers.inline.inline_menu_manager import handle_callback_query
 
 import os
 from dotenv import load_dotenv
