@@ -11,11 +11,6 @@ async def handle_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, from_w
     current_menu = context.user_data.get("current_menu", "main_customer")
     menu = menu_map.get(current_menu, {})
 
-    # 📥 لاگ‌های دیباگ برای بررسی
-    print("📥 متن دریافتی:", text)
-    print("📂 current_menu:", current_menu)
-    print("🗂 کلیدهای منو:", list(menu.keys()))
-
     # اجرای تابع مرتبط با دکمه
     handler = menu.get(text)
 
