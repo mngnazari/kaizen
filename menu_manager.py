@@ -4,22 +4,26 @@ from menus import menu_map
 
 
 async def handle_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, from_where="msg"):
-    # گرفتن متن انتخاب‌شده توسط کاربر (چه از دکمه ثابت، چه پیام)
+    # 🔘 گرفتن متن دکمه فشرده‌شده یا پیام کاربر
     text = update.message.text if from_where == "msg" else update.callback_query.data
 
-    # گرفتن منوی فعلی از user_data
+    # 📍 منوی فعلی را از user_data بخوان
     current_menu = context.user_data.get("current_menu", "main_customer")
     menu = menu_map.get(current_menu, {})
 
-    # 📥 لاگ‌های دیباگ برای بررسی
-    print("📥 متن دریافتی:", text)
-    print("📂 current_menu:", current_menu)
-    print("🗂 کلیدهای منو:", list(menu.keys()))
-
-    # اجرای تابع مرتبط با دکمه
+    # 🔍 پیدا کردن تابع مرتبط با دکمه
     handler = menu.get(text)
 
-    if handler:
+    # ⬆️ اگر دکمه بازگشت باشد (UP)، اجرای تابع برگشت به منوی والد
+    if handler == "UP":
+        from handlers.common import up_menu
+        await up_menu(update, context)
+        return
+
+    # ✅ اگر handler یک تابع باشد، آن را اجرا کن
+    if callable(handler):
         await handler(update, context)
+
+    # ❌ اگر handler تعریف نشده بود یا نامعتبر بود
     else:
         await update.message.reply_text("❗ گزینه نامعتبر است یا هنوز پیاده‌سازی نشده.")

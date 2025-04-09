@@ -1,11 +1,11 @@
 from telegram import Update
 from telegram.ext import ContextTypes
-from handlers.common import build_keyboard, push_menu
+from handlers.common import build_keyboard
 from handlers.inline.keyboards import build_inline_keyboard
 
 # 🗂 آرشیو - منوی جدید → پس push_menu
-async def archive_handler(update, context):
-    push_menu(context, "archive_menu")  # ✅ اضافه به هیستوری
+async def archive_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data["current_menu"] = "archive_menu"  # 👈 حتماً لازم
     keyboard = build_keyboard("archive_menu")
     await update.message.reply_text("📂 آرشیو را انتخاب کردید.", reply_markup=keyboard)
 
@@ -32,7 +32,6 @@ async def invoice_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # 📅 هفته اخیر - فقط پیام → بدون push_menu
 async def recent_week_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("📅 آرشیو هفته اخیر")
-
 # 📆 ماه اخیر - فقط پیام → بدون push_menu
 async def recent_month_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("📆 آرشیو ماه اخیر")
@@ -49,7 +48,7 @@ async def test_inline_menu_handler(update: Update, context: ContextTypes.DEFAULT
     )
 
 async def all_archive_handler(update, context):
-    push_menu(context, "all_archive_menu")
+    context.user_data["current_menu"] = "all_archive_menu"
     keyboard = build_keyboard("all_archive_menu")
     await update.message.reply_text("📁 انتخاب بخش از کل آرشیو:", reply_markup=keyboard)
 
@@ -58,3 +57,9 @@ async def all_archive_1_handler(update, context):
 
 async def all_archive_2_handler(update, context):
     await update.message.reply_text("📦 نمایش کل2")
+
+async def all1_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("📄 اطلاعات کل 1")
+
+async def all2_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("📂 اطلاعات کل 2")

@@ -1,6 +1,6 @@
-## menus.py
 from handlers import customer, admin, common
 
+# 🧭 نگاشت منوها به توابع مربوطه
 menu_map = {
     "main_customer": {
         "🗂 آرشیو": customer.archive_handler,
@@ -14,25 +14,30 @@ menu_map = {
     "archive_menu": {
         "📅 هفته اخیر": customer.recent_week_handler,
         "📆 ماه اخیر": customer.recent_month_handler,
-        "📁 کل": customer.all_archive_handler,  # تغییر خواهد کرد در مرحله بعد
-        "🔙 بازگشت": common.pop_menu,
+        "📁 کل": customer.all_archive_handler,
+        "🔙 بازگشت": "UP"
     },
     "all_archive_menu": {
-        "📦 کل1": customer.all_archive_1_handler,
-        "📦 کل2": customer.all_archive_2_handler,
-        "🔙 بازگشت": common.pop_menu,
+        "📄 کل 1": customer.all1_handler,
+        "📂 کل 2": customer.all2_handler,
+        "🔙 بازگشت": "UP",  # اشاره به منوی والد
     },
     "main_admin": {
         "👥 مشتریان": admin.customer_list_handler,
         "🎁 تخفیف مناسبتی": admin.discount_handler,
-        "🔙 بازگشت": common.back_to_main_handler,
+        "🔙 بازگشت": "UP"
     }
 }
 
-
+# 🎛 کنترل تعداد دکمه در هر ردیف از هر منو
 menu_layout = {
     "main_customer": 2,
     "archive_menu": 1,
-    "all_archive_menu": 1,
-    "main_admin": 2,
+    "main_admin": 2
+}
+
+# ⬆️ مشخص کردن منوی والد برای هر منو (برای دکمه بازگشت Up)
+menu_parents = {
+    "archive_menu": "main_customer",
+    "all_archive_menu": "archive_menu",
 }
