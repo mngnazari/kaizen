@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال">
-      <change afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -188,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744284885647</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس">
+      <option name="closed" value="true" />
+      <created>1744288126615</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744288126615</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +223,8 @@
     <MESSAGE value="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت" />
     <MESSAGE value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
     <MESSAGE value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
-    <option name="LAST_COMMIT_MESSAGE" value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
+    <MESSAGE value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
+    <option name="LAST_COMMIT_MESSAGE" value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

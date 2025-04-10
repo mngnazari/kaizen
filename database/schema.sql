@@ -1,13 +1,11 @@
 -- 🧑 جدول کاربران
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    telegram_id INTEGER UNIQUE,
-    username TEXT,
-    full_name TEXT,
+    telegram_id INTEGER PRIMARY KEY,
+    full_name TEXT NOT NULL,
     phone TEXT,
-    is_admin INTEGER DEFAULT 0,
-    referred_by INTEGER REFERENCES users(id),
-    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    address TEXT,
+    inviter_id INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 💳 کیف پول
@@ -48,12 +46,10 @@ CREATE TABLE IF NOT EXISTS support_messages (
 
 -- ایجاد جدول کاربران
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    telegram_id INTEGER UNIQUE NOT NULL,
-    full_name TEXT,
-    is_admin INTEGER DEFAULT 0,             -- 1 = ادمین، 0 = عادی
-    referrer_id INTEGER,                    -- آیدی کسی که این کاربر را دعوت کرده
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (referrer_id) REFERENCES users(id)
+    telegram_id INTEGER PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    phone TEXT,
+    address TEXT,  -- ← این خط رو اضافه کن
+    inviter_id INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

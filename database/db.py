@@ -19,6 +19,17 @@ def initialize_database():
     else:
         print("📦 دیتابیس از قبل وجود دارد.")
 
+def save_user_to_db(telegram_id, full_name, phone, address, inviter_id=None):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT OR REPLACE INTO users (telegram_id, full_name, phone, address, inviter_id)
+        VALUES (?, ?, ?, ?, ?)
+    """, (telegram_id, full_name, phone, address, inviter_id))
+
+    conn.commit()
+    conn.close()
 
 if __name__ == "__main__":
     initialize_database()

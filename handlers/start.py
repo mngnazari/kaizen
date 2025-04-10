@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 from handlers.common import build_keyboard
-from handlers.register import start_register  # ✅ تابع آغاز ثبت‌نام
+from handlers.register import start_registration  # ✅ تابع آغاز ثبت‌نام
 
 # بارگذاری .env و لیست ادمین‌ها
 load_dotenv()

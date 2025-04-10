@@ -3,6 +3,7 @@ from menu_manager import handle_menu
 from handlers.start import start_handler  # ← هندلر جدید و استاندارد start
 from handlers.inline.inline_menu_manager import handle_callback_query
 from handlers.register import registration_conversation
+
 import os
 from dotenv import load_dotenv
 
