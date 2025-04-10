@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kaizen22.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/customer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/menus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "eab55682",
+    "git-widget-placeholder": "restore-upmenu",
     "last_opened_file_path": "C:/kaizen22",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

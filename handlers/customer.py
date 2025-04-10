@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes
 from handlers.common import build_keyboard
 from handlers.inline.keyboards import build_inline_keyboard
 
+
 # 🗂 آرشیو - منوی جدید → پس push_menu
 async def archive_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data["current_menu"] = "archive_menu"  # 👈 حتماً لازم
@@ -44,8 +45,10 @@ async def all_archive_handler(update: Update, context: ContextTypes.DEFAULT_TYPE
 async def test_inline_menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "🔘 تست منوی شیشه‌ای:",
-        reply_markup=build_inline_keyboard("file_menu", "TEST001")
+       # reply_markup=build_inline_keyboard("file_action_menu", "TEST001")
+        reply_markup = build_inline_keyboard("file_action_menu", context)
     )
+    context.user_data["inline_current_menu"] = "file_action_menu"
 
 async def all_archive_handler(update, context):
     context.user_data["current_menu"] = "all_archive_menu"

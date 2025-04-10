@@ -1,17 +1,24 @@
 menus = {
-    "file_menu": {
-        "📄 پیش‌نمایش": "preview",
-        "📝 توضیحات": "details",
-        "✅ تأیید": "confirm",
-        "❌ انصراف": "cancel"
+    "file_action_menu": {
+        "🔢 تغییر تعداد": "goto:quantity_menu",
+        "⏩ زودتر": "rush",
+        "📝 توضیحات": "description",
+        "❌ انصراف": "cancel_file"
     },
-    "confirm_menu": {
-        "🔙 برگشت": "back_to:file_menu"
+    "quantity_menu": {
+        "➖": "change:-",
+        "🔢 تعداد: {quantity}": None,  # ← مقدار داینامیک
+        "➕": "change:+",
+        "✅ تأیید": "up",
+        "❌ انصراف": "up"
     }
 }
 
 menu_layouts = {
-    "file_menu": 1,
-    "confirm_menu": 1,
-    "test_menu": 3
+    "file_action_menu": 3,
+    "quantity_menu": 3
+}
+
+menu_parents = {
+    "quantity_menu": "file_action_menu"
 }
