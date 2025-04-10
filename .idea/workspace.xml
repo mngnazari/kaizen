@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست">
-      <change afterPath="$PROJECT_DIR$/database/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال">
+      <change afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/menus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +57,7 @@
     "Python.handlers.executor": "Run",
     "Python.main.executor": "Run",
     "Python.mm.executor": "Run",
+    "Python.register.executor": "Run",
     "Python.start.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -181,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744280089911</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال">
+      <option name="closed" value="true" />
+      <created>1744284885647</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744284885647</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +212,8 @@
     <MESSAGE value="منوها با زیر منو و تعیین تعداد هر سطر و درستی پیدمان دکمه ها در بازگشت ها" />
     <MESSAGE value="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت" />
     <MESSAGE value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
-    <option name="LAST_COMMIT_MESSAGE" value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
+    <MESSAGE value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
+    <option name="LAST_COMMIT_MESSAGE" value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

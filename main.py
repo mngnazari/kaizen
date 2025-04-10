@@ -2,7 +2,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters,Ca
 from menu_manager import handle_menu
 from handlers.start import start_handler  # ← هندلر جدید و استاندارد start
 from handlers.inline.inline_menu_manager import handle_callback_query
-
+from handlers.register import registration_conversation
 import os
 from dotenv import load_dotenv
 
@@ -11,13 +11,10 @@ TOKEN = os.getenv("BOT_TOKEN")  # یا مستقیم توکن بذار
 
 app = Application.builder().token(TOKEN).build()
 
-# ⬅️ اول CommandHandlerها (مثل /start) باید بیان
-app.add_handler(CommandHandler("start", start_handler))
-
-# ⬅️ بعدش MessageHandler عمومی
-app.add_handler(MessageHandler(filters.TEXT, handle_menu))
-
-app.add_handler(CallbackQueryHandler(handle_callback_query))
+app.add_handler(registration_conversation)  # ⬅ اول ثبت‌نام
+app.add_handler(CommandHandler("start", start_handler))  # ⬅ بعد استارت
+app.add_handler(CallbackQueryHandler(handle_callback_query))  # ⬅ بعد شیشه‌ای‌ها
+app.add_handler(MessageHandler(filters.TEXT, handle_menu))  # ⬅ آخر بقیه پیام‌ها
 
 print("🤖 Bot is running...")
 app.run_polling()
