@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kaizen22.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست">
+      <change afterPath="$PROJECT_DIR$/database/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/customer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/menus.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +55,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.db.executor": "Run",
     "Python.handlers.executor": "Run",
     "Python.main.executor": "Run",
     "Python.mm.executor": "Run",
+    "Python.start.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -84,7 +77,7 @@
       <recent name="C:\kaizen22\handlers" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="kaizen22" />
       <option name="ENV_FILES" value="" />
@@ -180,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744051239963</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست">
+      <option name="closed" value="true" />
+      <created>1744280089911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744280089911</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +204,8 @@
     <MESSAGE value="افرودن دکمه های مشتری با قابلیت تعیین دکمه هر ردیف" />
     <MESSAGE value="منوها با زیر منو و تعیین تعداد هر سطر و درستی پیدمان دکمه ها در بازگشت ها" />
     <MESSAGE value="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت" />
-    <option name="LAST_COMMIT_MESSAGE" value="بازنویسی مجدد منوهای بازگشتی با ساختار بازگشت به لایه بالاتر نه منوی قبلی برای کیبوردهای ثابت" />
+    <MESSAGE value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
+    <option name="LAST_COMMIT_MESSAGE" value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

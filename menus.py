@@ -23,9 +23,7 @@ menu_map = {
         "🔙 بازگشت": "UP",  # اشاره به منوی والد
     },
     "main_admin": {
-        "👥 مشتریان": admin.customer_list_handler,
-        "🎁 تخفیف مناسبتی": admin.discount_handler,
-        "🔙 بازگشت": "UP"
+        "🔗 لینک دعوت": admin.invite_link_handler,
     }
 }
 
