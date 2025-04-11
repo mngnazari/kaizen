@@ -1,8 +1,118 @@
 
 
 ==================================================
+# فایل: handlers\register.py
+==================================================
+
+from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from telegram.ext import (
+    ContextTypes,
+    ConversationHandler,
+    MessageHandler,
+    filters,
+)
+from database.db import save_user_to_db
+
+# مراحل مکالمه
+FULL_NAME, PHONE, ADDRESS = range(3)
+
+# 📌 مرحله اول: شروع ثبت‌نام
+async def start_registration(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    await update.message.reply_text("👤 لطفاً نام و نام خانوادگی خود را وارد کنید:")
+    return FULL_NAME
+
+# 📌 مرحله دوم: دریافت نام
+async def get_name(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    context.user_data["full_name"] = update.message.text
+
+    contact_button = KeyboardButton("📱 ارسال شماره تماس", request_contact=True)
+    keyboard = [[contact_button]]
+    await update.message.reply_text(
+        "📞 لطفاً شماره تماس خود را با دکمه زیر ارسال کنید:",
+        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True),
+    )
+    return PHONE
+
+# 📌 مرحله سوم: دریافت شماره تماس
+async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    if update.message.contact:
+        context.user_data["phone"] = update.message.contact.phone_number
+    else:
+        await update.message.reply_text("❗ لطفاً فقط از دکمه ارسال شماره استفاده کنید.")
+        return PHONE
+
+    await update.message.reply_text("🏠 لطفاً آدرس خود را وارد کنید:", reply_markup=ReplyKeyboardRemove())
+    return ADDRESS
+
+# 📌 مرحله چهارم: دریافت آدرس و ذخیره اطلاعات
+async def get_address(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    context.user_data["address"] = update.message.text
+
+    telegram_id = update.effective_user.id
+    full_name = context.user_data["full_name"]
+    phone = context.user_data["phone"]
+    address = context.user_data["address"]
+    inviter_id = context.user_data.get("inviter_id")
+
+    save_user_to_db(telegram_id, full_name, phone, address, inviter_id)
+
+    await update.message.reply_text("✅ ثبت‌نام با موفقیت انجام شد. خوش آمدید! 🎉")
+
+    from handlers.common import build_keyboard
+    keyboard = build_keyboard("main_customer")
+    await update.message.reply_text("📋 منوی اصلی:", reply_markup=keyboard)
+
+    return ConversationHandler.END
+
+# 📌 ConversationHandler برای ثبت‌نام (شروع از start_handler انجام می‌شود)
+registration_conversation = ConversationHandler(
+    entry_points=[],  # شروع توسط استارت هندلر
+    states={
+        FULL_NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, get_name)],
+        PHONE: [MessageHandler(filters.CONTACT, get_phone)],
+        ADDRESS: [MessageHandler(filters.TEXT & ~filters.COMMAND, get_address)],
+    },
+    fallbacks=[],
+)
+
+
+==================================================
+# فایل: main.py
+==================================================
+
+# فایل: main.py
+
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackQueryHandler
+from menu_manager import handle_menu
+from handlers.start import start_handler
+from handlers.inline.inline_menu_manager import handle_callback_query
+from handlers.register import registration_conversation
+from handlers.file_handler import file_receiver_handler
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+
+app = Application.builder().token(TOKEN).build()
+
+# 🧩 ترتیب دقیق هندلرها
+app.add_handler(CommandHandler("start", start_handler))                      # ⬅️ اول بررسی /start
+app.add_handler(registration_conversation)                                   # ⬅️ محاوره ثبت‌نام
+app.add_handler(MessageHandler(filters.Document.ALL, file_receiver_handler)) # ⬅️ دریافت فایل
+app.add_handler(CallbackQueryHandler(handle_callback_query))                 # ⬅️ دکمه‌های شیشه‌ای
+app.add_handler(MessageHandler(filters.TEXT, handle_menu))                   # ⬅️ سایر پیام‌های متنی
+
+print("🤖 Bot is running...")
+app.run_polling()
+
+
+==================================================
 # فایل: handlers\start.py
 ==================================================
+
+# فایل: handlers/start.py
 
 from telegram import Update
 from telegram.ext import ContextTypes
@@ -10,32 +120,38 @@ import os
 from dotenv import load_dotenv
 
 from handlers.common import build_keyboard
-from handlers.register import start_registration  # ✅ تابع آغاز ثبت‌نام
+from handlers.register import start_registration
 
-# بارگذاری .env و لیست ادمین‌ها
 load_dotenv()
 BOT_USERNAME = os.getenv("BOT_USERNAME")
-raw_ids = os.getenv("ADMIN_IDS", "")
-ADMIN_IDS = [int(i.strip()) for i in raw_ids.split(",") if i.strip().isdigit()]
+ADMIN_IDS = [int(i.strip()) for i in os.getenv("ADMIN_IDS", "").split(",") if i.strip().isdigit()]
 
 async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     message = update.message
 
-    # بررسی اینکه آیا کاربر ادمینه یا نه
+    # 🔄 پاکسازی دیتاهای گفت‌وگوی قبلی
+    context.user_data.clear()
+
+    # ✅ اگر ادمینه
     if user_id in ADMIN_IDS:
         context.user_data["current_menu"] = "main_admin"
-        keyboard = build_keyboard("main_admin")
-        await message.reply_text("🎛 خوش آمدید مدیر عزیز!", reply_markup=keyboard)
+        await message.reply_text(
+            "🎛 خوش آمدید مدیر عزیز!",
+            reply_markup=build_keyboard("main_admin")
+        )
         return
 
-    # اگر کاربر از طریق لینک دعوت اومده باشه → شروع ثبت‌نام
+    # ✅ اگر با لینک دعوت وارد شده
     args = context.args
     if args and args[0].startswith("ref_"):
-        referrer_id = args[0].replace("ref_", "")
-        context.user_data["referrer_id"] = referrer_id
-        await start_register(update, context)
-        return
+        try:
+            referrer_id = int(args[0].replace("ref_", ""))
+            context.user_data["inviter_id"] = referrer_id
+            await start_registration(update, context)
+            return
+        except ValueError:
+            pass  # کد ref نامعتبر بود
 
-    # اگر نه ادمینه و نه از لینک دعوت اومده → اجازه ورود نداره
+    # ⛔ در غیر این صورت اجازه ثبت‌نام نیست
     await message.reply_text("این بات اختصاصی است. برای ثبت‌نام باید لینک دعوت داشته باشید.")

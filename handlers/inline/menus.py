@@ -7,10 +7,11 @@ menus = {
     },
     "quantity_menu": {
         "➖": "change:-",
-        "🔢 تعداد: {quantity}": None,  # ← مقدار داینامیک
+        "🔢 تعداد: {quantity}": None,
         "➕": "change:+",
-        "✅ تأیید": "up",
-        "❌ انصراف": "up"
+        "❌ انصراف": "up",
+        "✅ تأیید": "confirm_quantity"
+
     }
 }
 

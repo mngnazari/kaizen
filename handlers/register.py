@@ -1,8 +1,11 @@
+# فایل: handlers/register.py
+
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import (
     ContextTypes,
     ConversationHandler,
     MessageHandler,
+    CommandHandler,
     filters,
 )
 from database.db import save_user_to_db
@@ -12,6 +15,15 @@ FULL_NAME, PHONE, ADDRESS = range(3)
 
 # 📌 مرحله اول: شروع ثبت‌نام
 async def start_registration(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    args = context.args if hasattr(context, "args") else []
+    if args and args[0].startswith("ref_"):
+        inviter_id = args[0].replace("ref_", "")
+        context.user_data["inviter_id"] = int(inviter_id)
+        print(f"✅ کاربر با لینک دعوت وارد شد. inviter_id = {inviter_id}")
+    else:
+        await update.message.reply_text("❌ برای ثبت‌نام باید از لینک دعوت استفاده کنید.")
+        return ConversationHandler.END
+
     await update.message.reply_text("👤 لطفاً نام و نام خانوادگی خود را وارد کنید:")
     return FULL_NAME
 
@@ -58,9 +70,9 @@ async def get_address(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
 
     return ConversationHandler.END
 
-# 📌 ConversationHandler برای ثبت‌نام (شروع از start_handler انجام می‌شود)
+# 📌 محاوره ثبت‌نام
 registration_conversation = ConversationHandler(
-    entry_points=[],  # شروع توسط استارت هندلر
+    entry_points=[CommandHandler("start", start_registration)],
     states={
         FULL_NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, get_name)],
         PHONE: [MessageHandler(filters.CONTACT, get_phone)],

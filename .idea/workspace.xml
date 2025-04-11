@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="تشخیص ادمین رفرال ثبت نام دریافت فایل">
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/combined_modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combined_modules.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/kaizen.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/kaizen.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/queries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/file_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/file_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -80,7 +85,7 @@
       <recent name="C:\kaizen22\handlers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="kaizen22" />
       <option name="ENV_FILES" value="" />
@@ -200,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744288126615</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل">
+      <option name="closed" value="true" />
+      <created>1744392351714</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744392351714</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +240,8 @@
     <MESSAGE value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
     <MESSAGE value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
     <MESSAGE value="تشخیص ادمین رفرال ثبت نام دریافت فایل" />
-    <option name="LAST_COMMIT_MESSAGE" value="تشخیص ادمین رفرال ثبت نام دریافت فایل" />
+    <MESSAGE value="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل" />
+    <option name="LAST_COMMIT_MESSAGE" value="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
