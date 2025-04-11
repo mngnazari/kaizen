@@ -1,11 +1,11 @@
 -- 🧑 جدول کاربران
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE users (
     telegram_id INTEGER PRIMARY KEY,
     full_name TEXT NOT NULL,
     phone TEXT,
     address TEXT,
     inviter_id INTEGER,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    role TEXT DEFAULT 'customer'
 );
 
 -- 💳 کیف پول
@@ -17,14 +17,20 @@ CREATE TABLE IF NOT EXISTS wallet (
 -- 🧾 سفارشات فایل
 CREATE TABLE IF NOT EXISTS files (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER REFERENCES users(id),
-    file_id TEXT,
-    caption TEXT,
+    telegram_id INTEGER NOT NULL,
+    file_name TEXT,
+    file_type TEXT,
+    file_id TEXT NOT NULL,
+    file_unique_id TEXT NOT NULL,   -- ✅ اضافه شده برای شناسایی یکتا
+    sent_at TEXT NOT NULL,
     quantity INTEGER DEFAULT 1,
-    is_rush INTEGER DEFAULT 0,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status TEXT DEFAULT 'pending'
+    description TEXT DEFAULT 'فاقد توضیحات',
+    delivery_time TEXT DEFAULT '',
+    file_status TEXT DEFAULT 'جدید',
+    preview_file_id TEXT DEFAULT '',
+    FOREIGN KEY (telegram_id) REFERENCES users (telegram_id)
 );
+
 
 -- 🪙 تراکنش‌های مالی (پرداخت / پاداش / تخفیف)
 CREATE TABLE IF NOT EXISTS transactions (

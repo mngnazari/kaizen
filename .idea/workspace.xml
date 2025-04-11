@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس">
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="تشخیص ادمین رفرال ثبت نام دریافت فایل">
+      <change afterPath="$PROJECT_DIR$/DeepSeekCopy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/queries.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/file_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +58,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.DeepSeekCopy.executor": "Run",
     "Python.db.executor": "Run",
     "Python.handlers.executor": "Run",
     "Python.main.executor": "Run",
@@ -64,13 +68,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "restore-upmenu",
-    "last_opened_file_path": "C:/kaizen22",
+    "git-widget-placeholder": "99553c46",
+    "last_opened_file_path": "C:/kaizen22/database/file_handler.py",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "two.files.diff.last.used.file": "C:/kaizen22/database/file_handler.py"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -224,7 +229,8 @@
     <MESSAGE value="رفت و برگشت درست منوهای شیشه ای و تعییر تعداد درست" />
     <MESSAGE value="ساخت دستا بیس با اسکما و نیز تعریف آیدی ادمین در انو و نیز یوزر بات در انو و تشخیص ادمین و منو اولیه ادمین و تولید لینک رفرال" />
     <MESSAGE value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
-    <option name="LAST_COMMIT_MESSAGE" value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
+    <MESSAGE value="تشخیص ادمین رفرال ثبت نام دریافت فایل" />
+    <option name="LAST_COMMIT_MESSAGE" value="تشخیص ادمین رفرال ثبت نام دریافت فایل" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
