@@ -1,27 +1,41 @@
 
 
 ==================================================
-# فایل: main.py
+# فایل: handlers\start.py
 ==================================================
 
-from telegram.ext import Application, CommandHandler, MessageHandler, filters,CallbackQueryHandler
-from menu_manager import handle_menu
-from handlers.start import start_handler  # ← هندلر جدید و استاندارد start
-from handlers.inline.inline_menu_manager import handle_callback_query
-from handlers.register import registration_conversation
-
+from telegram import Update
+from telegram.ext import ContextTypes
 import os
 from dotenv import load_dotenv
 
+from handlers.common import build_keyboard
+from handlers.register import start_registration  # ✅ تابع آغاز ثبت‌نام
+
+# بارگذاری .env و لیست ادمین‌ها
 load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN")  # یا مستقیم توکن بذار
+BOT_USERNAME = os.getenv("BOT_USERNAME")
+raw_ids = os.getenv("ADMIN_IDS", "")
+ADMIN_IDS = [int(i.strip()) for i in raw_ids.split(",") if i.strip().isdigit()]
 
-app = Application.builder().token(TOKEN).build()
+async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    message = update.message
 
-app.add_handler(registration_conversation)  # ⬅ اول ثبت‌نام
-app.add_handler(CommandHandler("start", start_handler))  # ⬅ بعد استارت
-app.add_handler(CallbackQueryHandler(handle_callback_query))  # ⬅ بعد شیشه‌ای‌ها
-app.add_handler(MessageHandler(filters.TEXT, handle_menu))  # ⬅ آخر بقیه پیام‌ها
+    # بررسی اینکه آیا کاربر ادمینه یا نه
+    if user_id in ADMIN_IDS:
+        context.user_data["current_menu"] = "main_admin"
+        keyboard = build_keyboard("main_admin")
+        await message.reply_text("🎛 خوش آمدید مدیر عزیز!", reply_markup=keyboard)
+        return
 
-print("🤖 Bot is running...")
-app.run_polling()
+    # اگر کاربر از طریق لینک دعوت اومده باشه → شروع ثبت‌نام
+    args = context.args
+    if args and args[0].startswith("ref_"):
+        referrer_id = args[0].replace("ref_", "")
+        context.user_data["referrer_id"] = referrer_id
+        await start_register(update, context)
+        return
+
+    # اگر نه ادمینه و نه از لینک دعوت اومده → اجازه ورود نداره
+    await message.reply_text("این بات اختصاصی است. برای ثبت‌نام باید لینک دعوت داشته باشید.")

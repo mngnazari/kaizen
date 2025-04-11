@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="تشخیص ادمین رفرال ثبت نام دریافت فایل">
-      <change afterPath="$PROJECT_DIR$/DeepSeekCopy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/db_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/queries.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/file_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combined_modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combined_modules.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "99553c46",
+    "git-widget-placeholder": "file-handler-and-db",
     "last_opened_file_path": "C:/kaizen22/database/file_handler.py",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

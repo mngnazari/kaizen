@@ -1,51 +1,64 @@
-# فایل: handlers/file_handler.py
+from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from telegram.ext import (
+    ContextTypes,
+    ConversationHandler,
+    MessageHandler,
+    filters,
+)
+from database.db import save_user_to_db
+# مراحل مکالمه
+FULL_NAME, PHONE, ADDRESS = range(3)
+# 📌 مرحله اول: شروع ثبت‌نام
+async def start_registration(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    await update.message.reply_text("👤 لطفاً نام و نام خانوادگی خود را وارد کنید:")
+    return FULL_NAME
+# 📌 مرحله دوم: دریافت نام
+async def get_name(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    context.user_data["full_name"] = update.message.text
 
-from telegram import Update
-from telegram.ext import ContextTypes
-from database.queries import is_user_registered, save_file_info
-
-
-# فقط کاربران ثبت‌نام‌شده اجازه ارسال فایل دارند
-ALLOWED_EXTENSIONS = {".stl", ".rar", ".zip", ".3dm"}
-
-
-def get_file_extension(filename: str) -> str:
-    for ext in ALLOWED_EXTENSIONS:
-        if filename.lower().endswith(ext):
-            return ext
-    return ""
-
-
-async def file_receiver_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.effective_user
-    telegram_id = user.id
-
-    # چک کردن عضویت
-    if not is_user_registered(telegram_id):
-        await update.message.reply_text("❗ فقط کاربران عضو شده می‌توانند فایل ارسال کنند.")
-        return
-
-    document = update.message.document
-    if not document:
-        return
-
-    filename = document.file_name
-    ext = get_file_extension(filename)
-
-    if ext == "":
-        await update.message.reply_text("❌ فرمت فایل مجاز نیست. فرمت‌های مجاز: STL, RAR, ZIP, 3DM")
-        return
-
-    file_id = document.file_id
-    file_unique_id = document.file_unique_id
-
-    # ذخیره در دیتابیس
-    save_file_info(
-        telegram_id=telegram_id,
-        file_id=file_id,
-        file_unique_id=file_unique_id,
-        file_name=filename,
-        file_type=ext
+    contact_button = KeyboardButton("📱 ارسال شماره تماس", request_contact=True)
+    keyboard = [[contact_button]]
+    await update.message.reply_text(
+        "📞 لطفاً شماره تماس خود را با دکمه زیر ارسال کنید:",
+        reply_markup=ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True),
     )
+    return PHONE
+# 📌 مرحله سوم: دریافت شماره تماس
+async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    if update.message.contact:
+        context.user_data["phone"] = update.message.contact.phone_number
+    else:
+        await update.message.reply_text("❗ لطفاً فقط از دکمه ارسال شماره استفاده کنید.")
+        return PHONE
 
-    await update.message.reply_text(f"📁 فایل «{filename}» با موفقیت ثبت شد ✅")
+    await update.message.reply_text("🏠 لطفاً آدرس خود را وارد کنید:", reply_markup=ReplyKeyboardRemove())
+    return ADDRESS
+# 📌 مرحله چهارم: دریافت آدرس و ذخیره اطلاعات
+async def get_address(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    context.user_data["address"] = update.message.text
+
+    telegram_id = update.effective_user.id
+    full_name = context.user_data["full_name"]
+    phone = context.user_data["phone"]
+    address = context.user_data["address"]
+    inviter_id = context.user_data.get("inviter_id")
+
+    save_user_to_db(telegram_id, full_name, phone, address, inviter_id)
+
+    await update.message.reply_text("✅ ثبت‌نام با موفقیت انجام شد. خوش آمدید! 🎉")
+
+    from handlers.common import build_keyboard
+    keyboard = build_keyboard("main_customer")
+    await update.message.reply_text("📋 منوی اصلی:", reply_markup=keyboard)
+
+    return ConversationHandler.END
+# 📌 ConversationHandler برای ثبت‌نام (شروع از start_handler انجام می‌شود)
+registration_conversation = ConversationHandler(
+    entry_points=[],  # شروع توسط استارت هندلر
+    states={
+        FULL_NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, get_name)],
+        PHONE: [MessageHandler(filters.CONTACT, get_phone)],
+        ADDRESS: [MessageHandler(filters.TEXT & ~filters.COMMAND, get_address)],
+    },
+    fallbacks=[],
+)
