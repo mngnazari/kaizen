@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل">
+    <list default="true" id="92421cd9-97a3-4415-b99d-655831bcd298" name="Changes" comment="شناسائی ادمین رفرال عصویت ارسال فایل ارسال کیبورد شیشه ای تعییر تعداد ذخیره در دیتا بیس">
+      <change afterPath="$PROJECT_DIR$/handlers/inline/inline_description.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_9_2025_3_12_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combined_modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combined_modules.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/kaizen.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/kaizen.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/kaizen.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/file_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/file_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/inline_menu_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/inline/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/keyboards.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/inline/menus.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/inline/menus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +35,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -58,28 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.DeepSeekCopy.executor": "Run",
-    "Python.db.executor": "Run",
-    "Python.handlers.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.mm.executor": "Run",
-    "Python.register.executor": "Run",
-    "Python.start.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "file-handler-and-db",
-    "last_opened_file_path": "C:/kaizen22/database/file_handler.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "two.files.diff.last.used.file": "C:/kaizen22/database/file_handler.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.DeepSeekCopy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.start.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;file-handler-and-db&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/kaizen22/database/file_handler.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/kaizen22/database/file_handler.py&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\kaizen22\handlers" />
@@ -213,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744392351714</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="شناسائی ادمین رفرال عصویت ارسال فایل ارسال کیبورد شیشه ای تعییر تعداد ذخیره در دیتا بیس">
+      <option name="closed" value="true" />
+      <created>1744404637645</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744404637645</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +249,8 @@
     <MESSAGE value="ثبت نام مشتری با رفرال و دریافت اظلاعات مشتری اما بدون ثبت در دیتابیس" />
     <MESSAGE value="تشخیص ادمین رفرال ثبت نام دریافت فایل" />
     <MESSAGE value="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل" />
-    <option name="LAST_COMMIT_MESSAGE" value="عدم درخواست نام اضافی در ابتدای دکمه استار تشخیص ادمین رفرال عضویت ثبت فایل" />
+    <MESSAGE value="شناسائی ادمین رفرال عصویت ارسال فایل ارسال کیبورد شیشه ای تعییر تعداد ذخیره در دیتا بیس" />
+    <option name="LAST_COMMIT_MESSAGE" value="شناسائی ادمین رفرال عصویت ارسال فایل ارسال کیبورد شیشه ای تعییر تعداد ذخیره در دیتا بیس" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 from database.db import get_connection
 
-
+# بررسی عضویت کاربر
 def is_user_registered(telegram_id: int) -> bool:
     conn = get_connection()
     cursor = conn.cursor()
@@ -11,7 +11,7 @@ def is_user_registered(telegram_id: int) -> bool:
     conn.close()
     return result is not None
 
-
+# ⏺ ذخیره اطلاعات فایل - و برگرداندن شناسه ردیف
 def save_file_info(
     telegram_id: int,
     file_id: str,
@@ -23,7 +23,7 @@ def save_file_info(
     description: str = "فاقد توضیحات",
     preview_file_id: str = "",
     delivery_date: str = ""
-):
+) -> int:
     conn = get_connection()
     cursor = conn.cursor()
     timestamp = datetime.now().isoformat(timespec="seconds")
@@ -56,18 +56,20 @@ def save_file_info(
         preview_file_id
     ))
 
+    file_db_id = cursor.lastrowid
     conn.commit()
     conn.close()
+    return file_db_id
 
-
-def get_file_data_by_unique_id(file_unique_id: str):
+# 🔍 بازیابی اطلاعات فایل با id
+def get_file_data_by_id(file_db_id: int):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT file_name, file_type, quantity, description, delivery_time
+        SELECT file_name, file_type, quantity, description, delivery_time, file_id
         FROM files
-        WHERE file_unique_id = ?
-    """, (file_unique_id,))
+        WHERE id = ?
+    """, (file_db_id,))
     row = cursor.fetchone()
     conn.close()
 
@@ -78,25 +80,26 @@ def get_file_data_by_unique_id(file_unique_id: str):
             "quantity": row[2],
             "description": row[3],
             "delivery_time": row[4],
+            "file_id": row[5],
         }
     return None
 
-
-def update_quantity(file_unique_id: str, new_quantity: int):
+# ✏️ به‌روزرسانی توضیحات با id فایل
+def update_description_by_id(file_db_id: int, new_description: str):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        UPDATE files SET quantity = ? WHERE file_unique_id = ?
-    """, (new_quantity, file_unique_id))
+        UPDATE files SET description = ? WHERE id = ?
+    """, (new_description, file_db_id))
     conn.commit()
     conn.close()
 
-
-def update_description(file_unique_id: str, new_description: str):
+# 🔢 به‌روزرسانی تعداد فایل با id
+def update_quantity_by_id(file_db_id: int, new_quantity: int):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        UPDATE files SET description = ? WHERE file_unique_id = ?
-    """, (new_description, file_unique_id))
+        UPDATE files SET quantity = ? WHERE id = ?
+    """, (new_quantity, file_db_id))
     conn.commit()
     conn.close()

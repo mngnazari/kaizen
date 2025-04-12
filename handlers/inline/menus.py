@@ -2,7 +2,7 @@ menus = {
     "file_action_menu": {
         "🔢 تغییر تعداد": "goto:quantity_menu",
         "⏩ زودتر": "rush",
-        "📝 توضیحات": "description",
+        "📝 توضیحات": "description:{file_id}",
         "❌ انصراف": "cancel_file"
     },
     "quantity_menu": {
